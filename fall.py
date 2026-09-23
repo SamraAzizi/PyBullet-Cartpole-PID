@@ -20,3 +20,17 @@ plane = p.loadURDF("plane.urdf")
 
 # --- 6. Load the cartpole at the origin ---
 cartpole = p.loadURDF("cartpole.urdf", [0, 0, 0])
+# --- 7. Print out the joints so we know what's what ---
+print("Joint info for the cartpole:")
+for j in range(p.getNumJoints(cartpole)):
+    info = p.getJointInfo(cartpole, j)
+    print("  joint index:", j, "| name:", info[1].decode(), "| type:", info[2])
+
+# --- 8. Let it fall for 3 seconds of simulated time ---
+for i in range(720):                 # 720 steps × 1/240 s = 3 seconds
+    p.stepSimulation()
+    time.sleep(1/240)                # slow it down so our eyes can see it
+
+# --- 9. Keep the window open for a moment, then close ---
+time.sleep(1)
+p.disconnect()
