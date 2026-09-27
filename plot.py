@@ -22,3 +22,13 @@ MAX_SPEED = 5.0
 
 prev_error = 0.0
 integral = 0.0
+# ---------- Recorders (empty lists, we'll fill them) ----------
+times       = []
+pole_angles = []
+cart_positions = []
+
+# ---------- Reader ----------
+def get_state():
+    cart_pos, cart_vel = p.getJointState(cartpole, CART_JOINT)[:2]
+    pole_angle, pole_vel = p.getJointState(cartpole, POLE_JOINT)[:2]
+    return cart_pos, cart_vel, pole_angle, pole_vel
