@@ -123,3 +123,7 @@ if outside.any():
     print(f"Recovery time after push: {recovery_time:.2f} s")
 else:
     print("Pole never left the tolerance band after the push.")
+
+plt.tight_layout()
+plt.savefig("plots/disturbance.png", dpi=150, bbox_inches="tight")
+plt.show()

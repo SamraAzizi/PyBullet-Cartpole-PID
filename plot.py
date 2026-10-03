@@ -82,4 +82,5 @@ ax2.set_xlabel("Time (s)")
 ax2.grid(True)
 
 plt.tight_layout()
+plt.savefig("plots/balancing.png", dpi=150, bbox_inches="tight")
 plt.show()
